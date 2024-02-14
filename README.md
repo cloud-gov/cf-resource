@@ -107,5 +107,4 @@ docker build -t cf-resource -f dockerfiles/ubuntu/Dockerfile .
 
 ### Contributing
 
-Please make all pull requests to the `master` branch and ensure tests pass
-locally.
+Please make all pull requests to the `main` branch and ensure tests pass locally.
