@@ -19,7 +19,7 @@ var _ = Describe("Check", func() {
 		if _, err = os.Stat("/opt/resource/check"); err == nil {
 			bin = "/opt/resource/check"
 		} else {
-			bin, err = Build("github.com/concourse/cf-resource/check/cmd/check")
+			bin, err = Build("github.com/cloud-gov/cf-resource/check/cmd/check")
 			Expect(err).NotTo(HaveOccurred())
 		}
 		cmd := exec.Command(bin)
