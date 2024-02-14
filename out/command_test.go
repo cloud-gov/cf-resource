@@ -11,9 +11,9 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/concourse/cf-resource"
-	"github.com/concourse/cf-resource/out"
-	"github.com/concourse/cf-resource/out/outfakes"
+	resource "github.com/cloud-gov/cf-resource"
+	"github.com/cloud-gov/cf-resource/out"
+	"github.com/cloud-gov/cf-resource/out/outfakes"
 )
 
 var _ = Describe("Out Command", func() {
