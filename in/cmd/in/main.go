@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/concourse/cf-resource"
-	"github.com/concourse/cf-resource/in"
+	resource "github.com/cloud-gov/cf-resource"
+	"github.com/cloud-gov/cf-resource/in"
 )
 
 func main() {

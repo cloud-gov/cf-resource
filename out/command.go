@@ -5,7 +5,7 @@ import (
 
 	"os"
 
-	"github.com/concourse/cf-resource"
+	resource "github.com/cloud-gov/cf-resource"
 )
 
 const CfDockerPassword = "CF_DOCKER_PASSWORD"

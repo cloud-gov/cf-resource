@@ -17,8 +17,8 @@ import (
 	"github.com/onsi/gomega/gbytes"
 	"github.com/onsi/gomega/gexec"
 
-	"github.com/concourse/cf-resource"
-	"github.com/concourse/cf-resource/out"
+	resource "github.com/cloud-gov/cf-resource"
+	"github.com/cloud-gov/cf-resource/out"
 )
 
 var _ = Describe("Out", func() {

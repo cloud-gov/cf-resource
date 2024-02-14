@@ -1,6 +1,6 @@
 package out
 
-import "github.com/concourse/cf-resource"
+import resource "github.com/cloud-gov/cf-resource"
 
 type Request struct {
 	Source resource.Source `json:"source"`

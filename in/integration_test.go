@@ -13,8 +13,8 @@ import (
 
 	"github.com/onsi/gomega/gexec"
 
-	"github.com/concourse/cf-resource"
-	"github.com/concourse/cf-resource/in"
+	resource "github.com/cloud-gov/cf-resource"
+	"github.com/cloud-gov/cf-resource/in"
 )
 
 var _ = Describe("In", func() {
@@ -33,7 +33,7 @@ var _ = Describe("In", func() {
 		if _, err = os.Stat("/opt/resource/in"); err == nil {
 			binPath = "/opt/resource/in"
 		} else {
-			binPath, err = gexec.Build("github.com/concourse/cf-resource/in/cmd/in")
+			binPath, err = gexec.Build("github.com/cloud-gov/cf-resource/in/cmd/in")
 			Expect(err).NotTo(HaveOccurred())
 		}
 

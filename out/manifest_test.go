@@ -1,12 +1,13 @@
 package out_test
 
 import (
-	"github.com/concourse/cf-resource/out"
+	"github.com/cloud-gov/cf-resource/out"
+
+	"io/ioutil"
+	"os"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"io/ioutil"
-	"os"
 )
 
 var _ = Describe("Manifest", func() {

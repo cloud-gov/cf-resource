@@ -4,7 +4,7 @@ package outfakes
 import (
 	"sync"
 
-	"github.com/concourse/cf-resource/out"
+	"github.com/cloud-gov/cf-resource/out"
 )
 
 type FakePAAS struct {

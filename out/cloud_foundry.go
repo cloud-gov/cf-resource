@@ -2,9 +2,10 @@ package out
 
 import (
 	"fmt"
-	"github.com/concourse/cf-resource/out/zdt"
 	"os"
 	"os/exec"
+
+	"github.com/cloud-gov/cf-resource/out/zdt"
 )
 
 //go:generate counterfeiter . PAAS

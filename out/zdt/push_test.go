@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
 
-	"github.com/concourse/cf-resource/out/zdt"
+	"github.com/cloud-gov/cf-resource/out/zdt"
 )
 
 var stdout *gbytes.Buffer

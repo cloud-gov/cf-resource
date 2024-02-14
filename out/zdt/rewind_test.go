@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/concourse/cf-resource/out/zdt"
+	"github.com/cloud-gov/cf-resource/out/zdt"
 )
 
 var _ = Describe("Rewind", func() {

@@ -1,4 +1,4 @@
-module github.com/concourse/cf-resource
+module github.com/cloud-gov/cf-resource
 
 go 1.16
 
