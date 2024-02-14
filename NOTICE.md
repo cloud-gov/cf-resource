@@ -1,12 +1,32 @@
-Copyright 2014-2016 Alex Suraci, Chris Brown, and Pivotal Software, Inc.
+Copyright (c) 2015-Present CloudFoundry.org Foundation, Inc. All Rights Reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at
+This product contains software that is Copyright (c) 2013-2015 Pivotal Software, Inc.
 
-    http://www.apache.org/licenses/LICENSE-2.0
+This product is licensed to you under the Apache License, Version 2.0 (the "License").
 
-Unless required by applicable law or agreed to in writing, software distributed
-under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-CONDITIONS OF ANY KIND, either express or implied. See the License for the
-specific language governing permissions and limitations under the License.
+You may not use this project except in compliance with the License.
+
+
+Attribution notices:
+
+This product includes software from https://github.com/cloudfoundry/cli/tree/master/vendor/code.cloudfoundry.org/gofileutils/fileutils that is:
+Copyright (c) 2015-Present CloudFoundry.org Foundation, Inc. All Rights Reserved.
+Copyright (c) 2014-2015 Pivotal Software, Inc.
+and is licensed under the Apache License, Version 2.0.
+
+This product includes software from https://github.com/code.cloudfoundry.org/cli/tree/master/vendor/code.cloudfoundry.org/ykk that is:
+Copyright (c) 2015-Present CloudFoundry.org Foundation, Inc. All Rights Reserved.
+and is licensed under the Apache License, Version 2.0.
+
+This product includes software from https://github.com/cloudfoundry/cli/tree/master/vendor/github.com/cloudfoundry-incubator/cli-plugin-repo/web that is:
+Copyright (c) 2015-Present CloudFoundry.org Foundation, Inc. All Rights Reserved.
+Copyright (c) 2015 Pivotal Software, Inc.
+and is licensed under the Apache License, Version 2.0.
+
+This product includes software from https://github.com/cloudfoundry/cli/tree/master/vendor/github.com/cloudfoundry/dropsonde that is:
+Copyright (c) 2014-2015 Pivotal Software, Inc.
+and is licensed under the Apache License, Version 2.0.
+
+This product includes software from https://github.com/cloudfoundry/cli/tree/master/vendor/github.com/docker/docker/pkg/term that is:
+Copyright 2012-2016 Docker, Inc.
+and is licensed under the Apache License, Version 2.0.
