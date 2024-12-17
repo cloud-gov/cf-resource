@@ -12,7 +12,7 @@ import (
 type PAAS interface {
 	Login(api string, username string, password string, clientID string, clientSecret string, insecure bool) error
 	Target(organization string, space string) error
-	PushApp(manifest string, path string, currentAppName string, vars map[string]interface{}, varsFiles []string, dockerUser string, showLogs bool, noStart bool) error
+	PushApp(manifest string, path string, currentAppName string, vars map[string]interface{}, varsFiles []string, dockerUser string, showLogs bool, noStart bool, task bool) error
 }
 
 type CloudFoundry struct {
@@ -53,15 +53,16 @@ func (cf *CloudFoundry) PushApp(
 	dockerUser string,
 	showLogs bool,
 	noStart bool,
+	task bool,
 ) error {
 
 	if zdt.CanPush(cf.cf, currentAppName) {
 		pushFunction := func() error {
-			return cf.simplePush(manifest, path, currentAppName, vars, varsFiles, dockerUser, noStart)
+			return cf.simplePush(manifest, path, currentAppName, vars, varsFiles, dockerUser, noStart, task)
 		}
 		return zdt.Push(cf.cf, currentAppName, pushFunction, showLogs)
 	} else {
-		return cf.simplePush(manifest, path, currentAppName, vars, varsFiles, dockerUser, noStart)
+		return cf.simplePush(manifest, path, currentAppName, vars, varsFiles, dockerUser, noStart, task)
 	}
 }
 
@@ -73,6 +74,7 @@ func (cf *CloudFoundry) simplePush(
 	varsFiles []string,
 	dockerUser string,
 	noStart bool,
+	task bool,
 ) error {
 
 	args := []string{"push"}
@@ -85,6 +87,10 @@ func (cf *CloudFoundry) simplePush(
 
 	if noStart {
 		args = append(args, "--no-start")
+	}
+
+	if task {
+		args = append(args, "--task")
 	}
 
 	for name, value := range vars {
