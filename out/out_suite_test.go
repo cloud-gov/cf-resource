@@ -23,7 +23,7 @@ var _ = BeforeSuite(func() {
 	if _, err = os.Stat("/opt/resource/out"); err == nil {
 		binPath = "/opt/resource/out"
 	} else {
-		binPath, err = gexec.Build("github.com/concourse/cf-resource/out/cmd/out")
+		binPath, err = gexec.Build("github.com/cloud-gov/cf-resource/out/cmd/out")
 		Expect(err).NotTo(HaveOccurred())
 	}
 })
