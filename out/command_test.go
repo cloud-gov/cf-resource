@@ -140,6 +140,22 @@ var _ = Describe("Out Command", func() {
 			})
 		})
 
+		Describe("task handling", func() {
+			Context("when task is specified", func() {
+				BeforeEach(func() {
+					request.Params.Task = true
+				})
+
+				It("sets noStart to true", func() {
+					_, err := command.Run(request)
+					Expect(err).NotTo(HaveOccurred())
+
+					_, _, _, _, _, _, _, _, task := cloudFoundry.PushAppArgsForCall(0)
+					Expect(task).To(Equal(true))
+				})
+			})
+		})
+
 		Context("setting environment variables provided as params", func() {
 			var err error
 			var tempFile *os.File
