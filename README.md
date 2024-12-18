@@ -43,7 +43,8 @@ be specified.
 * `docker_username`: *Optional.* This is used as the username to authenticate against a protected docker registry.
 * `docker_password`: *Optional.* This should be the users password when authenticating against a protected docker registry.
 * `show_app_log`: *Optional.* Tails the app log during startup, useful to debug issues when using blue/green deploys together with the `current_app_name` option.
-* `no_start`: *Optional.* Deploys the app but does not start it. This parameter is ignored when `current_app_name` is specified.
+* `no_start`: *Optional.* Deploys the app but does not start it.
+* `tasks`: *Optional.* Stages the app but does not start it or give it a route.
 
 ## Pipeline example
 
@@ -101,8 +102,15 @@ will stop the build.
 Run the tests with the following commands for both `alpine` and `ubuntu` images:
 
 ```sh
-docker build -t cf-resource -f dockerfiles/alpine/Dockerfile .
 docker build -t cf-resource -f dockerfiles/ubuntu/Dockerfile .
+```
+
+### Regenerate test fakes
+
+```shell
+go install github.com/maxbrunsfeld/counterfeiter/v6
+cd out
+go run github.com/maxbrunsfeld/counterfeiter/v6 . PAAS
 ```
 
 ### Contributing
