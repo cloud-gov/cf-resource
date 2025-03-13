@@ -22,8 +22,8 @@ func cli(path string) func(args ...string) *exec.Cmd {
 }
 
 var _ = Describe("CanPush", func() {
-	cf := cli("assets/cf")
-	errCf := cli("assets/erroringCf")
+	cf := cli("../assets/cf")
+	errCf := cli("../assets/erroringCf")
 
 	BeforeEach(func() {
 		stdout = gbytes.NewBuffer()
@@ -46,7 +46,7 @@ var _ = Describe("CanPush", func() {
 })
 
 var _ = Describe("Push", func() {
-	cf := cli("assets/cf")
+	cf := cli("../assets/cf")
 
 	BeforeEach(func() {
 		stdout = gbytes.NewBuffer()
