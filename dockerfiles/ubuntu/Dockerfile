@@ -1,5 +1,5 @@
 ARG base_image
-ARG builder_image=concourse/golang-builder
+ARG builder_image=golang
 
 FROM ${builder_image} as builder
 RUN apt update && apt install -y --no-install-recommends \
