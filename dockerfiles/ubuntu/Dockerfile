@@ -29,10 +29,7 @@ COPY --from=builder assets/ /opt/resource/
 RUN chmod +x /opt/resource/*
 # move cf and cf8 so the symlink works
 RUN mv /opt/resource/cf* /usr/bin/
-RUN chgrp root /usr/bin/cf && \
-  chgrp root /usr/bin/cf8 && \
-  chgrp root /bin/cf && \
-  chgrp root /bin/cf8
+RUN chgrp root /usr/bin/cf8 && chgrp -h root /usr/bin/cf
 
 FROM resource AS tests
 COPY --from=builder /tests /go-tests
