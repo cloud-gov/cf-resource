@@ -30,6 +30,7 @@ RUN chmod +x /opt/resource/*
 # move cf and cf8 so the symlink works
 RUN mv /opt/resource/cf* /usr/bin/
 RUN chgrp root /usr/bin/cf8 && chgrp -h root /usr/bin/cf
+RUN chown root /usr/bin/cf8 && chown -h /usr/bin/cf
 
 FROM resource AS tests
 COPY --from=builder /tests /go-tests
