@@ -57,9 +57,51 @@ var _ = Describe("Push", func() {
 		err := zdt.Push(cf, "my-app", pushFunction, false)
 
 		Expect(err).NotTo(HaveOccurred())
+		Expect(stdout).To(gbytes.Say("cf app my-app-venerable"))
+		Expect(stdout).To(gbytes.Say("cf delete -f my-app-venerable"))
 		Expect(stdout).To(gbytes.Say("cf rename my-app my-app-venerable"))
 		Expect(stdout).To(gbytes.Say("cf push my-app"))
 		Expect(stdout).To(gbytes.Say("cf delete -f my-app-venerable"))
+	})
+
+	It("continues when there is no venerable app", func() {
+		commands := 0
+		cfWithoutVenerableApp := func(args ...string) *exec.Cmd {
+			commands++
+			if commands == 1 {
+				return cli("assets/erroringCf")(args...)
+			}
+			return cf(args...)
+		}
+		pushFunction := func() error { return cfWithoutVenerableApp("push", "my-app").Run() }
+
+		err := zdt.Push(cfWithoutVenerableApp, "my-app", pushFunction, false)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(stdout).To(gbytes.Say("cf app my-app-venerable"))
+		Expect(stdout).To(gbytes.Say("cf rename my-app my-app-venerable"))
+		Expect(stdout).To(gbytes.Say("cf push my-app"))
+		Expect(stdout).To(gbytes.Say("cf delete -f my-app-venerable"))
+	})
+
+	It("stops when the venerable app cannot be deleted", func() {
+		commands := 0
+		cfWithDeleteFailure := func(args ...string) *exec.Cmd {
+			commands++
+			if commands == 2 {
+				return cli("assets/erroringCf")(args...)
+			}
+			return cf(args...)
+		}
+		pushFunction := func() error { return cfWithDeleteFailure("push", "my-app").Run() }
+
+		err := zdt.Push(cfWithDeleteFailure, "my-app", pushFunction, false)
+
+		Expect(err).To(HaveOccurred())
+		Expect(stdout).To(gbytes.Say("cf app my-app-venerable"))
+		Expect(stdout).To(gbytes.Say("cf delete -f my-app-venerable"))
+		Expect(stdout).ToNot(gbytes.Say("cf rename"))
+		Expect(stdout).ToNot(gbytes.Say("cf push"))
 	})
 
 	It("rolls back on failed push", func() {

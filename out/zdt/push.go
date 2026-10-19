@@ -31,6 +31,15 @@ func Push(
 
 	actions := []Action{
 		{
+			Forward: func() error {
+				if cf("app", venerableAppName).Run() != nil {
+					return nil
+				}
+
+				return cf("delete", "-f", venerableAppName).Run()
+			},
+		},
+		{
 			Forward: cf("rename", currentAppName, venerableAppName).Run,
 		},
 		{
